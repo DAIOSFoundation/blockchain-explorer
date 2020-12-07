@@ -14,7 +14,7 @@
 		"blocksSyncTime": "1"
 	},
 	"jwt": {
-		"secret": "a secret phrase!!",
-		"expiresIn": "2h"
+		"secret": "DGBJWTCREATEDbyDAIBINC",
+		"expiresIn": "30d"
 	}
 }
