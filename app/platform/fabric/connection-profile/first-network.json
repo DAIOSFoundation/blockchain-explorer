@@ -1,17 +1,11 @@
 {
 	"name": "first-network",
 	"version": "1.0.0",
-	"license": "Apache-2.0",
 	"client": {
 		"tlsEnable": true,
-		"caCredential": {
-			"id": "admin",
-			"password": "adminpw"
-		},
 		"adminCredential": {
-			"id": "exploreradmin",
-			"password": "exploreradminpw",
-			"affiliation": "org1.department1"
+			"id": "admin-org0",
+			"password": "d4ib-dgb-rcaorg0adminorg0"
 		},
 		"enableAuthentication": true,
 		"organization": "Org1MSP",
@@ -27,7 +21,10 @@
 	"channels": {
 		"mychannel": {
 			"peers": {
-				"peer0.org1.example.com": {}
+				"peer1-org1": {},
+				"peer2-org1": {},
+				"peer1-org2": {},
+				"peer2-org2": {}
 			},
 			"connection": {
 				"timeout": {
@@ -42,37 +39,92 @@
 	},
 	"organizations": {
 		"Org1MSP": {
-			"mspid": "Org1MSP",
+			"mspid": "org1MSP",
 			"adminPrivateKey": {
-				"path": "/fabric-path/fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/priv_sk"
+				"path": "/Users/kjj/project/hyperledger/org1/admin/msp/keystore/8020256ba4af96e538e47980ba10214bfc69fbcebb1f286526cb1af2bd47fa64_sk"
 			},
-			"peers": ["peer0.org1.example.com"],
+			"peers": ["peer1-org1", "peer2-org1"],
 			"signedCert": {
-				"path": "/fabric-path/fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/signcerts/Admin@org1.example.com-cert.pem"
+				"path": "/Users/kjj/project/hyperledger/org1/admin/msp/signcerts/cert.pem"
+			}
+		},
+		"Org2MSP": {
+			"mspid": "org2MSP",
+			"adminPrivateKey": {
+				"path": "/Users/kjj/project/hyperledger/org2/admin/msp/keystore/4150e52aa1420e2ef0bedf00b81774273923327941fac587463d0461bdf54b80_sk"
+			},
+			"peers": ["peer1-org2", "peer2-org2"],
+			"signedCert": {
+				"path": "/Users/kjj/project/hyperledger/org2/admin/msp/signcerts/cert.pem"
 			}
 		}
 	},
 	"peers": {
-		"peer0.org1.example.com": {
+		"peer1-org1": {
 			"tlsCACerts": {
-				"path": "/fabric-path/fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt"
+				"path": "/Users/kjj/project/hyperledger/org1/peer1/assets/tls-ca/tls-ca-cert.pem"
 			},
-			"url": "grpcs://localhost:7051",
-			"grpcOptions": {
-				"ssl-target-name-override": "peer0.org1.example.com"
-			}
+			"url": "grpcs://peer1-org1:7051"
+		},
+		"peer2-org1": {
+			"tlsCACerts": {
+				"path": "/Users/kjj/project/hyperledger/org1/peer2/assets/tls-ca/tls-ca-cert.pem"
+			},
+			"url": "grpcs://peer2-org1:8051"
+		},
+		"peer1-org2": {
+			"tlsCACerts": {
+				"path": "/Users/kjj/project/hyperledger/org2/peer1/assets/tls-ca/tls-ca-cert.pem"
+			},
+			"url": "grpcs://peer1-org2:9051"
+		},
+		"peer2-org2": {
+			"tlsCACerts": {
+				"path": "/Users/kjj/project/hyperledger/org2/peer2/assets/tls-ca/tls-ca-cert.pem"
+			},
+			"url": "grpcs://peer2-org2:10051"
 		}
 	},
 	"certificateAuthorities": {
-		"ca0": {
-			"url": "https://localhost:7054",
+		"ca-tls": {
+			"url": "https://ca-tls:7052",
 			"httpOptions": {
 				"verify": false
 			},
 			"tlsCACerts": {
-				"path": "/fabric-path/fabric-samples/first-network/crypto-config/peerOrganizations/org1/ca/ca.org1-cert.pem"
+				"path": "/Users/kjj/project/hyperledger/tls-ca/crypto/ca-cert.pem"
 			},
-			"caName": "ca0-org1"
+			"caName": "ca-tls"
+		},
+		"rca-org0": {
+			"url": "https://rca-org0:7053",
+			"httpOptions": {
+				"verify": false
+			},
+			"tlsCACerts": {
+				"path": "/Users/kjj/project/hyperledger/org0/ca/crypto/ca-cert.pem"
+			},
+			"caName": "rca-org0"
+		},
+		"rca-org1": {
+			"url": "https://rca-org1:7054",
+			"httpOptions": {
+				"verify": false
+			},
+			"tlsCACerts": {
+				"path": "/Users/kjj/project/hyperledger/org1/ca/crypto/ca-cert.pem"
+			},
+			"caName": "rca-org1"
+		},
+		"rca-org2": {
+			"url": "https://rca-org2:7055",
+			"httpOptions": {
+				"verify": false
+			},
+			"tlsCACerts": {
+				"path": "/Users/kjj/project/hyperledger/org2/ca/crypto/ca-cert.pem"
+			},
+			"caName": "rca-org2"
 		}
 	}
 }

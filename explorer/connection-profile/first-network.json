@@ -1,136 +1,130 @@
 {
-  "name": "first-network",
-  "version": "1.0.0",
-  "client": {
-    "tlsEnable": true,
-    "adminCredential": {
-      "id": "admin-org0",
-      "password": "d4ib-dgb-rcaorg0adminorg0"
-    },
-    "enableAuthentication": true,
-    "organization": "Org1MSP",
-    "connection": {
-      "timeout": {
-        "peer": {
-          "endorser": "300"
-        },
-        "orderer": "300"
-      }
-    }
-  },
-  "channels": {
-    "mychannel": {
-      "peers": {
-        "peer1-org1": {},
-        "peer2-org1": {},
-        "peer1-org2": {},
-        "peer2-org2": {}
-      },
-      "connection": {
-        "timeout": {
-          "peer": {
-            "endorser": "6000",
-            "eventHub": "6000",
-            "eventReg": "6000"
-          }
-        }
-      }
-    }
-  },
-  "organizations": {
-    "Org1MSP": {
-      "mspid": "org1MSP",
-      "adminPrivateKey": {
-        "path": "/tmp/hyperledger/org1/admin/msp/keystore/7b9ebaeb006b14c8e426ecdde582ccf40176d70a503a0a58c28eb1b88ea32689_sk"
-      },
-      "peers": [
-        "peer1-org1",
-        "peer2-org1"
-      ],
-      "signedCert": {
-        "path": "/tmp/hyperledger/org1/admin/msp/signcerts/cert.pem"
-      }
-    },
-    "Org2MSP": {
-      "mspid": "org2MSP",
-      "adminPrivateKey": {
-        "path": "/tmp/hyperledger/org2/admin/msp/keystore/2c63eb34387a0c3e65efaf0606fa1949e40e6ade3b1868af0630dfdedc939d68_sk"
-      },
-      "peers": [
-        "peer1-org1",
-        "peer2-org1"
-      ],
-      "signedCert": {
-        "path": "/tmp/hyperledger/org2/admin/msp/signcerts/cert.pem"
-      }
-    }
-  },
-  "peers": {
-    "peer1-org1": {
-      "tlsCACerts": {
-        "path": "/tmp/hyperledger/org1/peer1/assets/tls-ca/tls-ca-cert.pem"
-      },
-      "url": "grpcs://peer1-org1:7051"
-    },
-    "peer2-org1": {
-      "tlsCACerts": {
-        "path": "/tmp/hyperledger/org1/peer2/assets/tls-ca/tls-ca-cert.pem"
-      },
-      "url": "grpcs://peer2-org1:8051"
-    },
-    "peer1-org2": {
-      "tlsCACerts": {
-        "path": "/tmp/hyperledger/org2/peer1/assets/tls-ca/tls-ca-cert.pem"
-      },
-      "url": "grpcs://peer1-org2:9051"
-    },
-    "peer2-org2": {
-      "tlsCACerts": {
-        "path": "/tmp/hyperledger/org2/peer2/assets/tls-ca/tls-ca-cert.pem"
-      },
-      "url": "grpcs://peer2-org2:10051"
-    }
-  },
-  "certificateAuthorities": {
-    "ca-tls": {
-      "url": "https://ca-tls:7052",
-      "httpOptions": {
-        "verify": false
-      },
-      "tlsCACerts": {
-        "path": "/tmp/hyperledger/tls-ca/crypto/ca-cert.pem"
-      },
-      "caName": "ca-tls"
-    },
-    "rca-org0": {
-      "url": "https://rca-org0:7053",
-      "httpOptions": {
-        "verify": false
-      },
-      "tlsCACerts": {
-        "path": "/tmp/hyperledger/org0/ca/crypto/ca-cert.pem"
-      },
-      "caName": "rca-org0"
-    },
-    "rca-org1": {
-      "url": "https://rca-org1:7054",
-      "httpOptions": {
-        "verify": false
-      },
-      "tlsCACerts": {
-        "path": "/tmp/hyperledger/org1/ca/crypto/ca-cert.pem"
-      },
-      "caName": "rca-org1"
-    },
-    "rca-org2": {
-      "url": "https://rca-org2:7055",
-      "httpOptions": {
-        "verify": false
-      },
-      "tlsCACerts": {
-        "path": "/tmp/hyperledger/org2/ca/crypto/ca-cert.pem"
-      },
-      "caName": "rca-org2"
-    }
-  }
+	"name": "first-network",
+	"version": "1.0.0",
+	"client": {
+		"tlsEnable": true,
+		"adminCredential": {
+			"id": "admin-org0",
+			"password": "d4ib-dgb-rcaorg0adminorg0"
+		},
+		"enableAuthentication": true,
+		"organization": "Org1MSP",
+		"connection": {
+			"timeout": {
+				"peer": {
+					"endorser": "300"
+				},
+				"orderer": "300"
+			}
+		}
+	},
+	"channels": {
+		"mychannel": {
+			"peers": {
+				"peer1-org1": {},
+				"peer2-org1": {},
+				"peer1-org2": {},
+				"peer2-org2": {}
+			},
+			"connection": {
+				"timeout": {
+					"peer": {
+						"endorser": "6000",
+						"eventHub": "6000",
+						"eventReg": "6000"
+					}
+				}
+			}
+		}
+	},
+	"organizations": {
+		"Org1MSP": {
+			"mspid": "org1MSP",
+			"adminPrivateKey": {
+				"path": "/tmp/hyperledger/org1/admin/msp/keystore/8020256ba4af96e538e47980ba10214bfc69fbcebb1f286526cb1af2bd47fa64_sk"
+			},
+			"peers": ["peer1-org1", "peer2-org1"],
+			"signedCert": {
+				"path": "/tmp/hyperledger/org1/admin/msp/signcerts/cert.pem"
+			}
+		},
+		"Org2MSP": {
+			"mspid": "org2MSP",
+			"adminPrivateKey": {
+				"path": "/tmp/hyperledger/org2/admin/msp/keystore/4150e52aa1420e2ef0bedf00b81774273923327941fac587463d0461bdf54b80_sk"
+			},
+			"peers": ["peer1-org2", "peer2-org2"],
+			"signedCert": {
+				"path": "/tmp/hyperledger/org2/admin/msp/signcerts/cert.pem"
+			}
+		}
+	},
+	"peers": {
+		"peer1-org1": {
+			"tlsCACerts": {
+				"path": "/tmp/hyperledger/org1/peer1/assets/tls-ca/tls-ca-cert.pem"
+			},
+			"url": "grpcs://peer1-org1:7051"
+		},
+		"peer2-org1": {
+			"tlsCACerts": {
+				"path": "/tmp/hyperledger/org1/peer2/assets/tls-ca/tls-ca-cert.pem"
+			},
+			"url": "grpcs://peer2-org1:8051"
+		},
+		"peer1-org2": {
+			"tlsCACerts": {
+				"path": "/tmp/hyperledger/org2/peer1/assets/tls-ca/tls-ca-cert.pem"
+			},
+			"url": "grpcs://peer1-org2:9051"
+		},
+		"peer2-org2": {
+			"tlsCACerts": {
+				"path": "/tmp/hyperledger/org2/peer2/assets/tls-ca/tls-ca-cert.pem"
+			},
+			"url": "grpcs://peer2-org2:10051"
+		}
+	},
+	"certificateAuthorities": {
+		"ca-tls": {
+			"url": "https://ca-tls:7052",
+			"httpOptions": {
+				"verify": false
+			},
+			"tlsCACerts": {
+				"path": "/tmp/hyperledger/tls-ca/crypto/ca-cert.pem"
+			},
+			"caName": "ca-tls"
+		},
+		"rca-org0": {
+			"url": "https://rca-org0:7053",
+			"httpOptions": {
+				"verify": false
+			},
+			"tlsCACerts": {
+				"path": "/tmp/hyperledger/org0/ca/crypto/ca-cert.pem"
+			},
+			"caName": "rca-org0"
+		},
+		"rca-org1": {
+			"url": "https://rca-org1:7054",
+			"httpOptions": {
+				"verify": false
+			},
+			"tlsCACerts": {
+				"path": "/tmp/hyperledger/org1/ca/crypto/ca-cert.pem"
+			},
+			"caName": "rca-org1"
+		},
+		"rca-org2": {
+			"url": "https://rca-org2:7055",
+			"httpOptions": {
+				"verify": false
+			},
+			"tlsCACerts": {
+				"path": "/tmp/hyperledger/org2/ca/crypto/ca-cert.pem"
+			},
+			"caName": "rca-org2"
+		}
+	}
 }

@@ -21,7 +21,7 @@ export LOG_LEVEL_CONSOLE=info
 export LOG_CONSOLE_STDOUT=false
 
 export DISCOVERY_AS_LOCALHOST=true
-node sync.js $1 $2 &
+node dist/sync.js $1 $2 &
 
 
 
