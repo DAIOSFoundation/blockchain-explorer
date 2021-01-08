@@ -12,6 +12,7 @@ import NetworkView from './View/NetworkView';
 import TransactionsView from './View/TransactionsView';
 import ChaincodeView from './View/ChaincodeView';
 import DashboardView from './View/DashboardView';
+import IPFSView from './View/IPFSView';
 import ChannelsView from './View/ChannelsView';
 import { chartSelectors } from '../state/redux/charts';
 import { tableOperations, tableSelectors } from '../state/redux/tables';
@@ -126,6 +127,13 @@ export const Main = props => {
 		<Router>
 			<div className={classes.main}>
 				<Switch>
+					<Private
+						exact
+						path="/ipfs"
+						render={routeprops => (
+							<IPFSView {...{ ...dashboardViewProps, ...routeprops }} />
+						)}
+					/>
 					<Private
 						exact
 						path="/"

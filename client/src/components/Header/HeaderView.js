@@ -176,7 +176,7 @@ const styles = theme => {
 		},
 		logoutIcon: {
 			color: dark ? 'rgb(139, 143, 148)' : '#5f6164',
-			fontSize: '18pt',
+			fontSize: '1em',
 			float: 'none',
 			'&:hover': {
 				color: dark ? '#c1d7f0' : '#24272a'
@@ -227,7 +227,7 @@ export class HeaderView extends Component {
 	}
 
 	componentDidMount() {
-		const { channels: channelArr , currentChannel } = this.props;
+		const { channels: channelArr, currentChannel } = this.props;
 		const arr = [];
 		let selectedValue = {};
 		channelArr.forEach(element => {
@@ -478,6 +478,7 @@ export class HeaderView extends Component {
 			notifications
 		} = this.state;
 		const links = [
+			{ to: '/ipfs', label: 'IPFS', exact: true },
 			{ to: '/', label: 'DASHBOARD', exact: true },
 			{ to: '/network', label: 'NETWORK' },
 			{ to: '/blocks', label: 'BLOCKS' },
@@ -565,14 +566,14 @@ export class HeaderView extends Component {
 										/>
 										<FontAwesome name="moon-o" className={classes.moonIcon} />
 									</div>
-									<div className={classNames(classes.adminButton, classes.user)}>
-										<FontAwesome
-											name="user-plus"
-											className={classes.userIcon}
-											onClick={() => this.registerOpen()}
-										/>
-									</div>
-									<div className={classNames(classes.adminButton, classes.logoutk)}>
+									{/*<div className={classNames(classes.adminButton, classes.user)}>*/}
+									{/*	<FontAwesome*/}
+									{/*		name="user-plus"*/}
+									{/*		className={classes.userIcon}*/}
+									{/*		onClick={() => this.registerOpen()}*/}
+									{/*	/>*/}
+									{/*</div>*/}
+									<div className={classNames(classes.adminButton, classes.logoutIcon)}>
 										<FontAwesome
 											name="sign-out"
 											className={classes.logout}
